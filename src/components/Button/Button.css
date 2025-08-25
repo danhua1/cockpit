@@ -1,0 +1,118 @@
+/* 公司内部按钮组件样式 */
+.company-button {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 按钮类型样式 */
+.company-button--primary {
+  /* 主要按钮使用公司品牌色 */
+}
+
+.company-button--success {
+  /* 成功按钮样式 */
+}
+
+.company-button--warning {
+  /* 警告按钮样式 */
+}
+
+.company-button--danger {
+  /* 危险按钮样式 */
+}
+
+.company-button--default {
+  /* 默认按钮样式 */
+}
+
+/* 按钮尺寸样式 */
+.company-button--mini {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.company-button--small {
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.company-button--middle {
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.company-button--large {
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 10px;
+}
+
+/* 按钮形状样式 */
+.company-button--rounded {
+  border-radius: 50px !important;
+}
+
+.company-button--rectangular {
+  border-radius: 4px !important;
+}
+
+/* 按钮状态样式 */
+.company-button--block {
+  width: 100%;
+}
+
+.company-button--loading {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.company-button--disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* 按钮悬浮效果 */
+.company-button:not(.company-button--disabled):not(.company-button--loading):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.company-button:not(.company-button--disabled):not(.company-button--loading):active {
+  transform: translateY(0);
+  transition: transform 0.1s;
+}
+
+/* 波纹效果 */
+.company-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+  pointer-events: none;
+}
+
+.company-button:active::after {
+  width: 120%;
+  height: 120%;
+}
+
+/* 主题定制变量 */
+:root {
+  --company-primary-color: #1677ff;
+  --company-success-color: #52c41a;
+  --company-warning-color: #faad14;
+  --company-danger-color: #ff4d4f;
+  --company-default-color: #d9d9d9;
+}
