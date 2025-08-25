@@ -1,26 +1,14 @@
-import type { StorybookConfig } from '@storybook/react';
-
-const config: StorybookConfig = {
+const config = {
   stories: ['../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
   ],
   framework: {
-    name: '@storybook/react',
+    name: '@storybook/react-webpack5',
     options: {},
-  },
-  docs: {
-    autodocs: 'tag',
   },
   typescript: {
     check: false,
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
-    },
   },
 };
 
