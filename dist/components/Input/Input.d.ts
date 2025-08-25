@@ -1,6 +1,5 @@
 import React from 'react';
 import { InputProps as AntdInputProps } from 'antd-mobile';
-import './Input.css';
 export interface InputProps extends Omit<AntdInputProps, 'type'> {
     /** 输入框类型 */
     type?: 'text' | 'password' | 'number' | 'tel' | 'email' | 'url' | 'search';

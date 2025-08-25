@@ -1,6 +1,5 @@
 import React from 'react';
 import { ButtonProps as AntdButtonProps } from 'antd-mobile';
-import './Button.css';
 export interface ButtonProps extends Omit<AntdButtonProps, 'color' | 'fill' | 'type'> {
     /** 按钮类型 */
     type?: 'primary' | 'default' | 'success' | 'warning' | 'danger';

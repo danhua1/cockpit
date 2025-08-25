@@ -2,9 +2,28 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var require$$0 = require('react');
+var React = require('react');
 var antdMobile = require('antd-mobile');
 var classNames = require('classnames');
+
+function _interopNamespaceDefault(e) {
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () { return e[k]; }
+        });
+      }
+    });
+  }
+  n.default = e;
+  return Object.freeze(n);
+}
+
+var React__namespace = /*#__PURE__*/_interopNamespaceDefault(React);
 
 var jsxRuntime = {exports: {}};
 
@@ -25,7 +44,7 @@ var hasRequiredReactJsxRuntime_production_min;
 function requireReactJsxRuntime_production_min () {
 	if (hasRequiredReactJsxRuntime_production_min) return reactJsxRuntime_production_min;
 	hasRequiredReactJsxRuntime_production_min = 1;
-var f=require$$0,k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:true,ref:true,__self:true,__source:true};
+var f=React,k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:true,ref:true,__self:true,__source:true};
 	function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a) void 0===d[b]&&(d[b]=a[b]);return {$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}reactJsxRuntime_production_min.Fragment=l;reactJsxRuntime_production_min.jsx=q;reactJsxRuntime_production_min.jsxs=q;
 	return reactJsxRuntime_production_min;
 }
@@ -51,7 +70,7 @@ function requireReactJsxRuntime_development () {
 	if (process.env.NODE_ENV !== "production") {
 	  (function() {
 
-	var React = require$$0;
+	var React$1 = React;
 
 	// ATTENTION
 	// When adding new symbols to this file,
@@ -86,7 +105,7 @@ function requireReactJsxRuntime_development () {
 	  return null;
 	}
 
-	var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+	var ReactSharedInternals = React$1.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 
 	function error(format) {
 	  {
@@ -1450,6 +1469,169 @@ const Card = ({ title, subtitle, extra, cover, variant = 'default', size = 'medi
     return (jsxRuntimeExports.jsxs(antdMobile.Card, { className: cardClassName, style: style, onClick: handleClick, ...rest, children: [renderCover(), renderHeader(), renderBody(), renderLoading()] }));
 };
 
+function AppstoreOutline(props) {
+  return /*#__PURE__*/React__namespace.createElement("svg", Object.assign({
+    width: "1em",
+    height: "1em",
+    viewBox: "0 0 48 48",
+    xmlns: "http://www.w3.org/2000/svg",
+    xmlnsXlink: "http://www.w3.org/1999/xlink"
+  }, props, {
+    style: Object.assign({
+      verticalAlign: '-0.125em'
+    }, props.style),
+    className: ['antd-mobile-icon', props.className].filter(Boolean).join(' ')
+  }), /*#__PURE__*/React__namespace.createElement("g", {
+    id: "AppstoreOutline-AppstoreOutline",
+    stroke: "none",
+    strokeWidth: 1,
+    fill: "none",
+    fillRule: "evenodd"
+  }, /*#__PURE__*/React__namespace.createElement("g", {
+    id: "AppstoreOutline-\u7F16\u7EC4"
+  }, /*#__PURE__*/React__namespace.createElement("rect", {
+    id: "AppstoreOutline-\u77E9\u5F62",
+    fill: "#FFFFFF",
+    opacity: 0,
+    x: 0,
+    y: 0,
+    width: 48,
+    height: 48
+  }), /*#__PURE__*/React__namespace.createElement("path", {
+    d: "M17,25 C20.3137085,25 23,27.6862915 23,31 L23,38 C23,41.3137085 20.3137085,44 17,44 L10,44 C6.6862915,44 4,41.3137085 4,38 L4,31 C4,27.6862915 6.6862915,25 10,25 L17,25 Z M38,25 C41.3137085,25 44,27.6862915 44,31 L44,38 C44,41.3137085 41.3137085,44 38,44 L31,44 C27.6862915,44 25,41.3137085 25,38 L25,31 C25,27.6862915 27.6862915,25 31,25 L38,25 Z M17,28 L10,28 C8.40231912,28 7.09633912,29.24892 7.00509269,30.8237272 L7,31 L7,38 C7,39.5976809 8.24891996,40.9036609 9.82372721,40.9949073 L10,41 L17,41 C18.5976809,41 19.9036609,39.75108 19.9949073,38.1762728 L20,38 L20,31 C20,29.4023191 18.75108,28.0963391 17.1762728,28.0050927 L17,28 Z M38,28 L31,28 C29.4023191,28 28.0963391,29.24892 28.0050927,30.8237272 L28,31 L28,38 C28,39.5976809 29.24892,40.9036609 30.8237272,40.9949073 L31,41 L38,41 C39.5976809,41 40.9036609,39.75108 40.9949073,38.1762728 L41,38 L41,31 C41,29.4023191 39.75108,28.0963391 38.1762728,28.0050927 L38,28 Z M17,4 C20.3137085,4 23,6.6862915 23,10 L23,17 C23,20.3137085 20.3137085,23 17,23 L10,23 C6.6862915,23 4,20.3137085 4,17 L4,10 C4,6.6862915 6.6862915,4 10,4 L17,4 Z M38,4 C41.3137085,4 44,6.6862915 44,10 L44,17 C44,20.3137085 41.3137085,23 38,23 L31,23 C27.6862915,23 25,20.3137085 25,17 L25,10 C25,6.6862915 27.6862915,4 31,4 L38,4 Z M17,7 L10,7 C8.40231912,7 7.09633912,8.24891996 7.00509269,9.82372721 L7,10 L7,17 C7,18.5976809 8.24891996,19.9036609 9.82372721,19.9949073 L10,20 L17,20 C18.5976809,20 19.9036609,18.75108 19.9949073,17.1762728 L20,17 L20,10 C20,8.40231912 18.75108,7.09633912 17.1762728,7.00509269 L17,7 Z M38,7 L31,7 C29.4023191,7 28.0963391,8.24891996 28.0050927,9.82372721 L28,10 L28,17 C28,18.5976809 29.24892,19.9036609 30.8237272,19.9949073 L31,20 L38,20 C39.5976809,20 40.9036609,18.75108 40.9949073,17.1762728 L41,17 L41,10 C41,8.40231912 39.75108,7.09633912 38.1762728,7.00509269 L38,7 Z",
+    id: "AppstoreOutline-\u5F62\u72B6\u7ED3\u5408",
+    fill: "currentColor",
+    fillRule: "nonzero"
+  }))));
+}
+
+function LeftOutline(props) {
+  return /*#__PURE__*/React__namespace.createElement("svg", Object.assign({
+    width: "1em",
+    height: "1em",
+    viewBox: "0 0 48 48",
+    xmlns: "http://www.w3.org/2000/svg",
+    xmlnsXlink: "http://www.w3.org/1999/xlink"
+  }, props, {
+    style: Object.assign({
+      verticalAlign: '-0.125em'
+    }, props.style),
+    className: ['antd-mobile-icon', props.className].filter(Boolean).join(' ')
+  }), /*#__PURE__*/React__namespace.createElement("g", {
+    id: "LeftOutline-LeftOutline",
+    stroke: "none",
+    strokeWidth: 1,
+    fill: "none",
+    fillRule: "evenodd"
+  }, /*#__PURE__*/React__namespace.createElement("g", {
+    id: "LeftOutline-\u7F16\u7EC4"
+  }, /*#__PURE__*/React__namespace.createElement("rect", {
+    id: "LeftOutline-\u77E9\u5F62",
+    fill: "#FFFFFF",
+    opacity: 0,
+    x: 0,
+    y: 0,
+    width: 48,
+    height: 48
+  }), /*#__PURE__*/React__namespace.createElement("path", {
+    d: "M31.7053818,5.11219264 L13.5234393,22.6612572 L13.5234393,22.6612572 C12.969699,23.2125856 12.9371261,24.0863155 13.4257204,24.6755735 L13.5234393,24.7825775 L31.7045714,42.8834676 C31.7795345,42.9580998 31.8810078,43 31.9867879,43 L35.1135102,43 C35.3344241,43 35.5135102,42.8209139 35.5135102,42.6 C35.5135102,42.4936115 35.4711279,42.391606 35.3957362,42.316542 L16.7799842,23.7816937 L16.7799842,23.7816937 L35.3764658,5.6866816 C35.5347957,5.53262122 35.5382568,5.27937888 35.3841964,5.121049 C35.3088921,5.04365775 35.205497,5 35.0975148,5 L31.9831711,5 C31.8795372,5 31.7799483,5.04022164 31.7053818,5.11219264 Z",
+    id: "LeftOutline-\u8DEF\u5F84",
+    fill: "currentColor",
+    fillRule: "nonzero"
+  }))));
+}
+
+const Cockpit = ({ children, backTitle = '返回', backArrowContent = jsxRuntimeExports.jsx(LeftOutline, { color: "#ffffff" }), rightContent, NavBarTitle = '测试标题', back, footerTabs, initKey, className, style, onNavigate, onTabChange, }) => {
+    const [tags, setTags] = React.useState(initKey || footerTabs?.[0]?.key || 'home');
+    const [visible2, setVisible2] = React.useState(false);
+    const [childrenList, setChildrenList] = React.useState([]);
+    React.useLayoutEffect(() => {
+        const themeColor = document.querySelector('.company-cockpit');
+        if (themeColor) {
+            themeColor.style.setProperty('--active-color', '#eb6e00');
+        }
+    }, []);
+    const { getFooterTabs, extendMenuList } = React.useMemo(() => {
+        const len = footerTabs?.length ?? 0;
+        if (len <= 0) {
+            console.warn('菜单参数异常');
+            return { getFooterTabs: [], extendMenuList: [] };
+        }
+        if (len === 1) {
+            // 只有一个标签时的处理逻辑
+            return { getFooterTabs: footerTabs, extendMenuList: [] };
+        }
+        if (len >= 5) {
+            return {
+                getFooterTabs: [
+                    ...footerTabs.slice(0, 2),
+                    {
+                        key: 'showMore',
+                        title: '',
+                        icon: (jsxRuntimeExports.jsx("div", { className: "company-cockpit-show-more-icon", onClick: () => setVisible2(true), children: jsxRuntimeExports.jsx(AppstoreOutline, {}) })),
+                        url: '',
+                    },
+                    ...footerTabs.slice(2, 4),
+                ],
+                extendMenuList: footerTabs.slice(4),
+            };
+        }
+        return { getFooterTabs: footerTabs, extendMenuList: [] };
+    }, [footerTabs]);
+    const goTags = React.useCallback((val) => {
+        if (val === 'showMore')
+            return;
+        const data = footerTabs.find(item => item.key === val);
+        if (!data) {
+            setChildrenList([]);
+            return;
+        }
+        setChildrenList([]);
+        if (data?.children) {
+            setChildrenList(data.children);
+        }
+        setTags(val);
+        // 调用外部回调函数
+        if (onTabChange) {
+            onTabChange(val, data);
+        }
+        if (data.url && onNavigate) {
+            onNavigate(data.url);
+        }
+    }, [footerTabs, onNavigate, onTabChange]);
+    const tagsItem = React.useCallback((title, key, icon, url) => {
+        return (jsxRuntimeExports.jsxs("div", { className: "company-cockpit-tag-content", onClick: () => {
+                if (url && onNavigate) {
+                    onNavigate(url);
+                }
+            }, children: [jsxRuntimeExports.jsx("div", { className: "company-cockpit-tag-content-icon", children: icon }), jsxRuntimeExports.jsx("p", { className: "company-cockpit-tag-content-title", children: title })] }, key));
+    }, [onNavigate]);
+    const renderMenuList = React.useCallback(() => {
+        return extendMenuList.map((item) => {
+            return (jsxRuntimeExports.jsx("div", { className: "company-cockpit-menu-content-list", onClick: () => {
+                    if (item.url && onNavigate) {
+                        onNavigate(item.url);
+                    }
+                }, children: jsxRuntimeExports.jsxs("div", { className: "company-cockpit-menu-content-list-item", children: [jsxRuntimeExports.jsx("div", { className: "company-cockpit-menu-content-list-icon", children: item.icon }), jsxRuntimeExports.jsx("span", { children: item.title })] }) }, item.key));
+        });
+    }, [extendMenuList, onNavigate]);
+    const innerBack = React.useCallback(() => {
+        if (back) {
+            back();
+        }
+        else {
+            // 默认的返回行为，可以通过传入 back 函数来自定义
+            console.warn('未提供 back回调函数');
+        }
+    }, [back]);
+    const cockpitClassName = `company-cockpit ${className || ''}`.trim();
+    return (jsxRuntimeExports.jsxs("div", { className: cockpitClassName, style: style, children: [jsxRuntimeExports.jsx("div", { className: "company-cockpit-top-safe-area", children: jsxRuntimeExports.jsx(antdMobile.SafeArea, { position: "top" }) }), jsxRuntimeExports.jsxs("div", { className: "company-cockpit-content", children: [jsxRuntimeExports.jsx("div", { className: "company-cockpit-navbar", children: jsxRuntimeExports.jsx(antdMobile.NavBar, { back: jsxRuntimeExports.jsx("span", { className: "company-cockpit-navbar-back-title", children: backTitle }), onBack: innerBack, backArrow: backArrowContent ? backArrowContent : false, right: rightContent ? rightContent : false, children: jsxRuntimeExports.jsx("span", { className: "company-cockpit-navbar-title", children: NavBarTitle }) }) }), childrenList && childrenList.length > 0 && (jsxRuntimeExports.jsx("div", { className: "company-cockpit-list-tags", children: childrenList.map((item) => {
+                            return tagsItem(item.title, item.key, item.icon, item.url);
+                        }) })), jsxRuntimeExports.jsx("div", { className: "company-cockpit-children-content", children: children }), jsxRuntimeExports.jsx("div", { className: "company-cockpit-footer-tabbar", children: jsxRuntimeExports.jsx(antdMobile.TabBar, { onChange: value => goTags(value), activeKey: tags, children: getFooterTabs && getFooterTabs.map((item) => (jsxRuntimeExports.jsx(antdMobile.TabBar.Item, { className: `${item.disable ? "company-cockpit-disabled" : ""}`, icon: item.icon, title: item.title }, item.key))) }) })] }), jsxRuntimeExports.jsx("div", { className: "company-cockpit-bottom-safe-area", children: jsxRuntimeExports.jsx(antdMobile.SafeArea, { position: "bottom" }) }), jsxRuntimeExports.jsx(antdMobile.Popup, { visible: visible2, onMaskClick: () => {
+                    setVisible2(false);
+                }, bodyClassName: "company-cockpit-menu-popup", bodyStyle: { height: '40vh' }, children: jsxRuntimeExports.jsx("div", { className: "company-cockpit-menu-popup-content", children: jsxRuntimeExports.jsx("div", { className: "company-cockpit-menu-popup-grid", children: renderMenuList() }) }) })] }));
+};
+
 // 导入组件
 // 版本信息
 const version = '1.0.0';
@@ -1458,11 +1640,13 @@ var index = {
     Button: Button,
     Input: Input,
     Card: Card,
+    Cockpit: Cockpit,
     version,
 };
 
 exports.Button = Button;
 exports.Card = Card;
+exports.Cockpit = Cockpit;
 exports.Input = Input;
 exports.default = index;
 exports.version = version;
