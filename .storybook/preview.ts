@@ -4,6 +4,7 @@ import type { Preview } from '@storybook/react';
 import '../src/components/Button/Button.css';
 import '../src/components/Input/Input.css';
 import '../src/components/Card/Card.css';
+import '../src/components/Cockpit/Cockpit.css';
 
 const preview: Preview = {
   parameters: {

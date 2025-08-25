@@ -35,6 +35,8 @@
 .company-cockpit-children-content {
   padding-bottom: 50px;
   flex-grow: 1;
+  overflow: auto;
+
 }
 
 .company-cockpit-list-tags {
@@ -74,6 +76,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
+  background-color: #f5f5f5;
 }
 
 .company-cockpit-footer-tabbar .adm-tab-bar-item-active {

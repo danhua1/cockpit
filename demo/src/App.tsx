@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Input, Card } from '@company/ui-mobile';
+import { Button, Input, Card, Cockpit } from '@company/ui-mobile';
+import { AppOutline, UserOutline, SearchOutline, MoreOutline } from 'antd-mobile-icons';
 import './App.css';
 
 const App: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
   const [inputValue2, setInputValue2] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showCockpit, setShowCockpit] = useState(false);
 
   const handleButtonClick = (type: string) => {
     console.log(`${type} 按钮被点击了`);
@@ -13,11 +15,148 @@ const App: React.FC = () => {
       setLoading(true);
       setTimeout(() => setLoading(false), 2000);
     }
+    if (type === 'cockpit') {
+      setShowCockpit(true);
+    }
+  };
+
+  // Cockpit 组件演示数据
+  const footerTabs = [
+    {
+      key: 'home',
+      title: '首页',
+      icon: <AppOutline />,
+      url: '/home',
+    },
+    {
+      key: 'search',
+      title: '搜索',
+      icon: <SearchOutline />,
+      url: '/search',
+    },
+    {
+      key: 'search',
+      title: '搜索',
+      icon: <SearchOutline />,
+      url: '/search',
+    },
+    {
+      key: 'profile',
+      title: '我的',
+      icon: <UserOutline />,
+      url: '/profile',
+      children: [
+        {
+          key: 'settings',
+          title: '设置',
+          icon: <MoreOutline />,
+          url: '/settings',
+          backgroundColor: '#f0f0f0',
+          textColor: '#333',
+        },
+        {
+          key: 'help',
+          title: '帮助',
+          icon: <MoreOutline />,
+          url: '/help',
+          backgroundColor: '#f0f0f0',
+          textColor: '#333',
+        },
+      ],
+    },
+     {
+      key: 'search',
+      title: '搜索',
+      icon: <SearchOutline />,
+      url: '/search',
+    }
+  ];
+
+  const handleNavigate = (url: string) => {
+    console.log('路由跳转到:', url);
+  };
+
+  const handleTabChange = (key: string, tab: any) => {
+    console.log('切换到标签:', key, tab);
+  };
+
+  const handleBack = () => {
+    setShowCockpit(false);
   };
 
   const handleCardClick = () => {
     console.log('卡片被点击了');
   };
+
+  // 如果显示 Cockpit 演示，则返回 Cockpit 组件
+  if (showCockpit) {
+    return (
+      <Cockpit
+        NavBarTitle="Cockpit 组件演示"
+        backTitle="返回"
+        footerTabs={footerTabs}
+        onNavigate={handleNavigate}
+        onTabChange={handleTabChange}
+        back={handleBack}
+      >
+        <div style={{ padding: '20px', height: '100vh', overflow: 'auto' }}>
+          <h2>Cockpit 组件演示</h2>
+          <p>这是一个基于 Ant Design Mobile 的驾驶舱组件演示。</p>
+          
+          <div style={{ 
+            background: '#f5f5f5', 
+            padding: '20px', 
+            borderRadius: '8px',
+            marginTop: '20px'
+          }}>
+            <h3>功能特点：</h3>
+            <ul style={{margin: '8px 0', paddingLeft: '20px'}}>
+              <li>统一的页面布局</li>
+              <li>响应式底部导航</li>
+              <li>支持二级菜单</li>
+              <li>可自定义主题色</li>
+              <li>安全区域适配</li>
+              <li>灵活的路由管理</li>
+            </ul>
+          </div>
+
+          <div style={{ marginTop: '20px' }}>
+            <h3>操作说明：</h3>
+            <p>1. 点击底部标签可以切换页面</p>
+            <p>2. 点击“我的”标签会显示二级菜单</p>
+            <p>3. 点击左上角返回按钮可以返回主页面</p>
+          </div>
+
+          {/* 演示其他组件 */}
+          <div style={{ marginTop: '30px' }}>
+            <h3>在 Cockpit 中使用其他组件：</h3>
+            <div style={{ marginTop: '16px' }}>
+              <Button type="primary" style={{ marginRight: '8px', marginBottom: '8px' }}>
+                主要按钮
+              </Button>
+              <Button type="default" style={{ marginBottom: '8px' }}>
+                默认按钮
+              </Button>
+            </div>
+            
+            <div style={{ marginTop: '16px' }}>
+              <Input
+                label="输入框演示"
+                placeholder="在 Cockpit 中使用输入框"
+                allowClear
+              />
+            </div>
+
+            <div style={{ marginTop: '16px' }}>
+              <Card title="卡片演示" subtitle="在 Cockpit 中使用卡片">
+                这是在 Cockpit 组件中使用的卡片组件。
+              </Card>
+            </div>
+          </div>
+        </div>
+      </Cockpit>
+    );
+  }
 
   return (
     <div className="demo-container">
@@ -89,6 +228,13 @@ const App: React.FC = () => {
               </Button>
               <Button type="primary" disabled>
                 禁用按钮
+              </Button>
+              <Button 
+                type="success" 
+                onClick={() => handleButtonClick('cockpit')}
+                style={{ marginTop: '8px' }}
+              >
+                🚀 查看 Cockpit 组件演示
               </Button>
             </div>
           </div>
