@@ -1,5 +1,6 @@
 import React from 'react';
 import type { FC, ReactNode } from 'react';
+import './Cockpit.css';
 export interface FooterTabChild {
     /** 背景颜色 */
     backgroundColor: string;

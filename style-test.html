@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件库样式测试</title>
+    <!-- 引入最新发布的组件库CSS -->
+    <style>
+        /* 直接内联一些Cockpit样式进行测试 */
+        .company-cockpit {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background: #f0f0f0;
+        }
+
+        .company-cockpit-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        .company-cockpit-navbar {
+            background-color: #EB6E00;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .company-cockpit-navbar-title {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .company-cockpit-children-content {
+            padding: 20px;
+            flex-grow: 1;
+            overflow: auto;
+            background: white;
+        }
+
+        .company-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background: #1677ff;
+            color: white;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .company-input {
+            padding: 8px 12px;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            margin: 10px;
+            display: block;
+            width: 200px;
+        }
+
+        .company-card {
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 10px;
+            background: white;
+        }
+
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+        }
+
+        .test-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="company-cockpit">
+        <div class="company-cockpit-content">
+            <div class="company-cockpit-navbar">
+                <div class="company-cockpit-navbar-title">样式测试页面</div>
+            </div>
+            
+            <div class="company-cockpit-children-content">
+                <div class="test-section">
+                    <div class="test-title">🎨 Cockpit 组件样式测试</div>
+                    <p>如果你能看到橙色导航栏和这个白色内容区域，说明 Cockpit 基础样式正常。</p>
+                </div>
+
+                <div class="test-section">
+                    <div class="test-title">🔘 Button 组件样式测试</div>
+                    <button class="company-button">测试按钮</button>
+                    <p>如果按钮是蓝色背景白色文字，说明 Button 样式正常。</p>
+                </div>
+
+                <div class="test-section">
+                    <div class="test-title">📝 Input 组件样式测试</div>
+                    <input class="company-input" placeholder="请输入内容" />
+                    <p>如果输入框有边框和正确的内边距，说明 Input 样式正常。</p>
+                </div>
+
+                <div class="test-section">
+                    <div class="test-title">📄 Card 组件样式测试</div>
+                    <div class="company-card">
+                        <h3>测试卡片</h3>
+                        <p>这是一个测试卡片的内容。如果有边框和内边距，说明 Card 样式正常。</p>
+                    </div>
+                </div>
+
+                <div class="test-section">
+                    <div class="test-title">📊 样式检测说明</div>
+                    <p><strong>如何使用组件库：</strong></p>
+                    <ol>
+                        <li>安装：<code>npm install ty-ui-mobile-cockpit@1.0.5</code></li>
+                        <li>导入组件：<code>import { Cockpit, Button, Input, Card } from 'ty-ui-mobile-cockpit';</code></li>
+                        <li><strong>重要：导入样式：<code>import 'ty-ui-mobile-cockpit/dist/index.css';</code></strong></li>
+                    </ol>
+                    
+                    <p><strong>常见问题：</strong></p>
+                    <ul>
+                        <li>❌ 忘记导入CSS文件</li>
+                        <li>❌ CSS文件路径错误</li>
+                        <li>❌ 样式被其他CSS覆盖</li>
+                        <li>❌ 组件类名不匹配</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('样式测试页面加载完成');
+        console.log('请检查页面样式是否正确显示');
+        
+        // 检测样式是否加载
+        const button = document.querySelector('.company-button');
+        if (button) {
+            const styles = window.getComputedStyle(button);
+            console.log('Button 背景色:', styles.backgroundColor);
+            console.log('Button 颜色:', styles.color);
+        }
+    </script>
+</body>
+</html>

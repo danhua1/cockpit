@@ -1,5 +1,6 @@
 import React from 'react';
-import { CardProps as AntdCardProps } from 'antd-mobile';
+import type { CardProps as AntdCardProps } from 'antd-mobile';
+import './Card.css';
 export interface CardProps extends Omit<AntdCardProps, 'title'> {
     /** 卡片标题 */
     title?: React.ReactNode;

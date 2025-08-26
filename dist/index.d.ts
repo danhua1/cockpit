@@ -165,7 +165,7 @@ interface ButtonProps extends Omit<ButtonProps$1, 'color' | 'fill' | 'type'> {
 }
 declare const Button: React__default.FC<ButtonProps>;
 
-declare const version = "1.0.0";
+declare const version = "1.2.0";
 declare const _default: {
     Button: React.FC<ButtonProps>;
     Input: React.FC<InputProps>;

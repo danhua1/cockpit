@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件库 CSS 导入测试</title>
+    <!-- 方法1: 直接引用打包后的 CSS 文件 -->
+    <link rel="stylesheet" href="./dist/index.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .test-container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .test-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .import-method {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>ty-ui-mobile-cockpit CSS 导入测试</h1>
+        
+        <div class="test-section">
+            <div class="test-title">📋 CSS 导入方法</div>
+            <p>在你的项目中，可以使用以下任意一种方法导入 CSS：</p>
+            
+            <div class="import-method">
+                // 方法1: 使用完整路径
+                import 'ty-ui-mobile-cockpit/dist/index.css';
+            </div>
+            
+            <div class="import-method">
+                // 方法2: 使用简短路径 (推荐)
+                import 'ty-ui-mobile-cockpit/style';
+            </div>
+            
+            <div class="import-method">
+                // 方法3: 在 HTML 中直接引用
+                &lt;link rel="stylesheet" href="node_modules/ty-ui-mobile-cockpit/dist/index.css"&gt;
+            </div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">🎨 组件样式测试</div>
+            <p>以下组件应该显示正确的样式（橙色导航栏、蓝色按钮等）：</p>
+            
+            <!-- 使用实际的组件 HTML 结构和类名 -->
+            <div style="margin: 20px 0;">
+                <!-- Button 组件测试 -->
+                <button class="company-button company-button--middle" style="margin: 5px;">
+                    默认按钮
+                </button>
+                <button class="company-button company-button--middle company-button--rounded" style="margin: 5px; background: #52c41a;">
+                    圆角按钮
+                </button>
+                
+                <!-- Input 组件测试 -->
+                <div class="company-input-wrapper" style="margin: 10px 0;">
+                    <input class="company-input company-input--middle" placeholder="请输入内容" />
+                </div>
+                
+                <!-- Card 组件测试 -->
+                <div class="company-card company-card--medium company-card--default" style="margin: 10px 0;">
+                    <div class="company-card-header">
+                        <div class="company-card-title">测试卡片</div>
+                    </div>
+                    <div class="company-card-body">
+                        这是一个测试卡片的内容。如果样式正确显示，说明 CSS 导入成功！
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">🔍 样式检测结果</div>
+            <div id="style-check-result">正在检测样式...</div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">❓ 常见问题排查</div>
+            <div style="line-height: 1.6;">
+                <p><strong>如果样式没有生效，请检查：</strong></p>
+                <ul>
+                    <li>是否正确安装了 ty-ui-mobile-cockpit@1.0.7</li>
+                    <li>是否导入了 CSS 文件</li>
+                    <li>CSS 文件路径是否正确</li>
+                    <li>是否有其他 CSS 覆盖了组件样式</li>
+                    <li>浏览器开发者工具中是否能找到 .company- 开头的样式</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 检测样式是否正确加载
+        function checkStyles() {
+            const resultDiv = document.getElementById('style-check-result');
+            const checks = [];
+            
+            // 检查按钮样式
+            const button = document.querySelector('.company-button');
+            if (button) {
+                const buttonStyles = window.getComputedStyle(button);
+                const buttonBg = buttonStyles.backgroundColor;
+                const buttonColor = buttonStyles.color;
+                
+                checks.push({
+                    name: '按钮样式',
+                    pass: buttonBg !== 'rgba(0, 0, 0, 0)' && buttonBg !== 'transparent',
+                    details: `背景色: ${buttonBg}, 文字色: ${buttonColor}`
+                });
+            }
+            
+            // 检查输入框样式
+            const input = document.querySelector('.company-input');
+            if (input) {
+                const inputStyles = window.getComputedStyle(input);
+                const inputBorder = inputStyles.border;
+                const inputPadding = inputStyles.padding;
+                
+                checks.push({
+                    name: '输入框样式',
+                    pass: inputBorder !== 'none' && inputPadding !== '0px',
+                    details: `边框: ${inputBorder}, 内边距: ${inputPadding}`
+                });
+            }
+            
+            // 检查卡片样式
+            const card = document.querySelector('.company-card');
+            if (card) {
+                const cardStyles = window.getComputedStyle(card);
+                const cardBorder = cardStyles.border;
+                const cardBorderRadius = cardStyles.borderRadius;
+                
+                checks.push({
+                    name: '卡片样式',
+                    pass: cardBorderRadius !== '0px',
+                    details: `边框: ${cardBorder}, 圆角: ${cardBorderRadius}`
+                });
+            }
+            
+            // 显示检测结果
+            let html = '';
+            checks.forEach(check => {
+                const icon = check.pass ? '✅' : '❌';
+                html += `<div>${icon} ${check.name}: ${check.pass ? '正常' : '异常'}</div>`;
+                html += `<div style="margin-left: 20px; color: #666; font-size: 12px;">${check.details}</div>`;
+            });
+            
+            // 检查是否能找到 company- 开头的 CSS 规则
+            const styleSheets = Array.from(document.styleSheets);
+            let companyRulesCount = 0;
+            
+            try {
+                styleSheets.forEach(sheet => {
+                    if (sheet.cssRules) {
+                        Array.from(sheet.cssRules).forEach(rule => {
+                            if (rule.selectorText && rule.selectorText.includes('.company-')) {
+                                companyRulesCount++;
+                            }
+                        });
+                    }
+                });
+            } catch (e) {
+                console.log('无法访问某些样式表规则（可能是跨域限制）');
+            }
+            
+            html += `<div style="margin-top: 10px;">📊 找到 ${companyRulesCount} 个 company- 前缀的 CSS 规则</div>`;
+            
+            if (companyRulesCount > 0) {
+                html += '<div style="color: green; font-weight: bold;">🎉 CSS 导入成功！</div>';
+            } else {
+                html += '<div style="color: red; font-weight: bold;">⚠️ 可能存在 CSS 导入问题</div>';
+            }
+            
+            resultDiv.innerHTML = html;
+        }
+        
+        // 页面加载完成后检测样式
+        window.addEventListener('load', () => {
+            setTimeout(checkStyles, 100);
+        });
+        
+        console.log('CSS 测试页面加载完成');
+        console.log('请检查页面上的组件样式是否正确显示');
+    </script>
+</body>
+</html>

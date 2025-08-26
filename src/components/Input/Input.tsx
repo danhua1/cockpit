@@ -1,6 +1,8 @@
 import React from 'react';
-import { Input as AntdInput, InputProps as AntdInputProps } from 'antd-mobile';
+import { Input as AntdInput } from 'antd-mobile';
+import type { InputProps as AntdInputProps } from 'antd-mobile';
 import classNames from 'classnames';
+import './Input.css';
 
 export interface InputProps extends Omit<AntdInputProps, 'type'> {
   /** 输入框类型 */

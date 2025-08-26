@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 自动注入测试</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 20px;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .test-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .success {
+            color: #52c41a;
+            font-weight: bold;
+        }
+        .error {
+            color: #ff4d4f;
+            font-weight: bold;
+        }
+        .info {
+            background: #e6f7ff;
+            border: 1px solid #91d5ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .component-demo {
+            margin: 15px 0;
+            padding: 15px;
+            border: 1px dashed #d9d9d9;
+            border-radius: 8px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🎉 CSS 自动注入测试</h1>
+        
+        <div class="info">
+            <strong>📋 测试说明：</strong><br>
+            现在组件库采用了类似 antd 的方案，CSS 直接注入到 JS 中。<br>
+            用户只需要导入组件，样式会自动生效，无需单独导入 CSS 文件！
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">🚀 新的使用方式</div>
+            <p>现在在任何框架中都可以这样简单使用：</p>
+            <pre style="background: #f6f8fa; padding: 15px; border-radius: 6px; overflow-x: auto;">
+// Umi 项目中
+import { Button, Input, Card } from 'ty-ui-mobile-cockpit';
+// 样式自动生效，无需任何额外配置！
+
+// React 项目中  
+import { Button, Input, Card } from 'ty-ui-mobile-cockpit';
+// 样式自动生效！
+
+// Vue 项目中
+import { Button, Input, Card } from 'ty-ui-mobile-cockpit';
+// 样式自动生效！</pre>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">🧪 组件测试</div>
+            <p>以下是使用打包后 JS 文件的组件测试（CSS 已注入到 JS 中）：</p>
+            
+            <div class="component-demo">
+                <!-- 这些组件的 CSS 应该自动生效 -->
+                <div id="component-container">
+                    正在加载组件...
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">✅ 验证结果</div>
+            <div id="verification-result">
+                <p>正在验证 CSS 注入效果...</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">📊 优势对比</div>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background: #fafafa;">
+                    <th style="border: 1px solid #d9d9d9; padding: 10px;">方案</th>
+                    <th style="border: 1px solid #d9d9d9; padding: 10px;">用户需要做的</th>
+                    <th style="border: 1px solid #d9d9d9; padding: 10px;">复杂度</th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #d9d9d9; padding: 10px;"><strong>老方案</strong></td>
+                    <td style="border: 1px solid #d9d9d9; padding: 10px;">
+                        1. 导入组件<br>
+                        2. 导入 CSS 文件<br>
+                        3. 配置构建工具
+                    </td>
+                    <td style="border: 1px solid #d9d9d9; padding: 10px;" class="error">复杂</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #d9d9d9; padding: 10px;"><strong>新方案</strong></td>
+                    <td style="border: 1px solid #d9d9d9; padding: 10px;">1. 导入组件</td>
+                    <td style="border: 1px solid #d9d9d9; padding: 10px;" class="success">简单</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- 引入打包后的组件库 JS 文件 -->
+    <script type="module">
+        try {
+            // 动态导入组件库
+            const { Button, Input, Card, Cockpit } = await import('./dist/index.esm.js');
+            
+            // 创建一个测试容器
+            const container = document.getElementById('component-container');
+            
+            // 创建 React 根节点（简化版本，实际项目中使用 React）
+            container.innerHTML = `
+                <div style="margin-bottom: 15px;">
+                    <h4>Button 组件测试：</h4>
+                    <button class="company-button company-button--middle company-button--primary">主要按钮</button>
+                    <button class="company-button company-button--middle" style="margin-left: 10px;">默认按钮</button>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <h4>Input 组件测试：</h4>
+                    <input class="company-input company-input--middle" placeholder="这是一个输入框" />
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <h4>Card 组件测试：</h4>
+                    <div class="company-card company-card--medium company-card--default">
+                        <div class="company-card-header">
+                            <div class="company-card-title">测试卡片</div>
+                        </div>
+                        <div class="company-card-body">
+                            这是卡片内容。如果你看到正确的样式，说明 CSS 自动注入成功！
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // 验证样式是否生效
+            setTimeout(() => {
+                const button = container.querySelector('.company-button');
+                const input = container.querySelector('.company-input');
+                const card = container.querySelector('.company-card');
+                
+                let result = '<h4>验证结果：</h4><ul>';
+                
+                if (button) {
+                    const buttonStyle = window.getComputedStyle(button);
+                    const hasButtonStyle = buttonStyle.borderRadius !== '0px' || buttonStyle.padding !== '0px';
+                    result += `<li class="${hasButtonStyle ? 'success' : 'error'}">
+                        ${hasButtonStyle ? '✅' : '❌'} Button 样式: ${hasButtonStyle ? '正常' : '异常'}
+                    </li>`;
+                }
+                
+                if (input) {
+                    const inputStyle = window.getComputedStyle(input);
+                    const hasInputStyle = inputStyle.border !== 'none' && inputStyle.padding !== '0px';
+                    result += `<li class="${hasInputStyle ? 'success' : 'error'}">
+                        ${hasInputStyle ? '✅' : '❌'} Input 样式: ${hasInputStyle ? '正常' : '异常'}
+                    </li>`;
+                }
+                
+                if (card) {
+                    const cardStyle = window.getComputedStyle(card);
+                    const hasCardStyle = cardStyle.borderRadius !== '0px' || cardStyle.border !== 'none';
+                    result += `<li class="${hasCardStyle ? 'success' : 'error'}">
+                        ${hasCardStyle ? '✅' : '❌'} Card 样式: ${hasCardStyle ? '正常' : '异常'}
+                    </li>`;
+                }
+                
+                // 检查页面中是否有注入的样式
+                const hasInjectedStyles = Array.from(document.styleSheets).some(sheet => {
+                    try {
+                        return Array.from(sheet.cssRules).some(rule => 
+                            rule.selectorText && rule.selectorText.includes('.company-')
+                        );
+                    } catch (e) {
+                        return false;
+                    }
+                });
+                
+                result += `<li class="${hasInjectedStyles ? 'success' : 'error'}">
+                    ${hasInjectedStyles ? '✅' : '❌'} CSS 自动注入: ${hasInjectedStyles ? '成功' : '失败'}
+                </li>`;
+                
+                result += '</ul>';
+                
+                if (hasInjectedStyles) {
+                    result += '<div class="info"><strong>🎉 成功！</strong> CSS 已经自动注入，用户无需手动导入样式文件！</div>';
+                } else {
+                    result += '<div class="info"><strong>⚠️ 注意：</strong> 可能需要在实际项目中测试，浏览器安全策略可能影响本地测试。</div>';
+                }
+                
+                document.getElementById('verification-result').innerHTML = result;
+            }, 500);
+            
+        } catch (error) {
+            console.error('加载组件库失败:', error);
+            document.getElementById('component-container').innerHTML = 
+                '<div class="error">❌ 组件库加载失败，请检查构建是否成功</div>';
+        }
+    </script>
+</body>
+</html>

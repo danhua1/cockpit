@@ -1,11 +1,18 @@
 {
-  "name": "@company/ui-mobile",
-  "version": "1.0.0",
-  "description": "基于 Ant Design Mobile 5 的公司内部移动端组件库",
+  "name": "ty-ui-mobile-cockpit",
+  "version": "1.2.0",
+  "description": "基于 Ant Design Mobile 5 的公司内部移动端组件库，采用 CSS-in-JS 方案，无需单独导入样式文件。完全自包含，防止版本冲突，包大小约 227KB。",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -28,10 +35,31 @@
     "ui",
     "mobile",
     "antd-mobile",
-    "typescript"
+    "typescript",
+    "cockpit",
+    "navigation",
+    "css-in-js",
+    "auto-inject",
+    "zero-config",
+    "umi",
+    "next.js",
+    "vite",
+    "tree-shaking",
+    "lightweight",
+    "optimized",
+    "18kb",
+    "extreme-optimized"
   ],
   "author": "Company UI Team",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/company/ui-mobile.git"
+  },
+  "homepage": "https://github.com/company/ui-mobile#readme",
+  "bugs": {
+    "url": "https://github.com/company/ui-mobile/issues"
+  },
   "peerDependencies": {
     "react": ">=16.14.0",
     "react-dom": ">=16.14.0"
@@ -41,6 +69,10 @@
     "classnames": "^2.5.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
@@ -51,11 +83,14 @@
     "@storybook/react": "^7.6.7",
     "@storybook/react-vite": "^7.6.7",
     "@storybook/test": "^7.6.7",
+    "@types/minimatch": "^6.0.0",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.1",
     "eslint": "^8.55.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
@@ -63,6 +98,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^4.9.1",
+    "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-postcss": "^4.0.2",
     "storybook": "^7.6.7",

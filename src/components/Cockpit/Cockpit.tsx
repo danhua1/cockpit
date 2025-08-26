@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useLayoutEffect, useMemo } from 'react';
-import './Cockpit.css';
 import { TabBar, Popup, SafeArea, NavBar } from 'antd-mobile';
 import { AppstoreOutline, LeftOutline } from 'antd-mobile-icons';
 import type { FC, ReactNode } from 'react';
+import './Cockpit.css';
 
 export interface FooterTabChild {
   /** 背景颜色 */

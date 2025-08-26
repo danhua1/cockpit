@@ -1,0 +1,28 @@
+# 开发文件
+src/
+demo/
+stories/
+.storybook/
+
+# 配置文件
+rollup.config.js
+tsconfig.json
+.eslintrc.json
+vite.config.ts
+
+# 脚本文件
+fix-storybook.sh
+
+# 开发依赖
+node_modules/
+yarn.lock
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+
+# 其他
+.DS_Store
+*.log
+yarn-error.log
